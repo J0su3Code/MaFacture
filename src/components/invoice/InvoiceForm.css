@@ -1,0 +1,352 @@
+/* ===== INVOICE FORM PAGE ===== */
+.invoice-form-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--gray-500);
+  gap: var(--space-md);
+}
+
+/* ===== FORM HEADER ===== */
+.form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.form-header h1 {
+  margin-bottom: var(--space-xs);
+}
+
+.form-header-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* ===== FORM GRID ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.form-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ===== FORM SECTION ===== */
+.form-section {
+  padding: var(--space-lg);
+}
+
+.form-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ===== CLIENT SELECTOR ===== */
+.client-selector {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+/* ===== ITEMS LIST ===== */
+.items-list {
+  margin-bottom: var(--space-md);
+}
+
+.items-header {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 70px 130px 140px 40px;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-sm);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-500);
+  background: var(--gray-100);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+}
+
+.items-header span {
+  white-space: nowrap;
+}
+
+.items-header .col-desc {
+  text-align: left;
+}
+
+.items-header .col-qty,
+.items-header .col-price,
+.items-header .col-total {
+  text-align: right;
+}
+
+.items-header .col-action {
+  /* Espace pour le bouton supprimer */
+}
+
+.add-item-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border: 2px dashed var(--gray-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+  background: transparent;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.add-item-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.02);
+}
+
+/* Responsive tablette */
+@media (max-width: 900px) {
+  .items-header {
+    grid-template-columns: minmax(150px, 1fr) 60px 110px 120px 36px;
+    gap: var(--space-sm);
+    font-size: 0.625rem;
+  }
+}
+
+/* Cacher le header sur mobile */
+@media (max-width: 768px) {
+  .items-header {
+    display: none;
+  }
+
+  .add-item-btn {
+    padding: var(--space-lg);
+    font-size: 1rem;
+  }
+}
+
+
+/* ===== FORM SIDEBAR ===== */
+.form-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: sticky;
+  top: calc(64px + var(--space-lg));
+}
+
+/* ===== SUMMARY CARD ===== */
+.summary-card {
+  padding: var(--space-lg);
+}
+
+.summary-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+}
+
+.summary-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+}
+
+.summary-input label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.summary-input input {
+  width: 100px;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  text-align: right;
+  font-size: 0.9375rem;
+}
+
+.summary-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  margin-top: var(--space-sm);
+  border-top: 2px solid var(--gray-200);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+/* ===== STATUS CARD ===== */
+.status-card {
+  padding: var(--space-lg);
+}
+
+.status-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .summary-card,
+  .status-card {
+    flex: 1;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-header {
+    flex-direction: column;
+  }
+
+  .form-header-actions {
+    width: 100%;
+  }
+
+  .form-header-actions .btn {
+    flex: 1;
+  }
+
+  .items-header {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card,
+  .status-card {
+    min-width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== SECTION SIGNATURES ===== */
+.signature-checkboxes {
+  display: flex;
+  gap: var(--space-lg);
+  margin: var(--space-md) 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.checkbox-label span {
+  user-select: none;
+}
+
+/* Info box pour les signatures */
+.signature-info-box {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-top: var(--space-md);
+  font-size: 0.8125rem;
+  color: var(--blue-700);
+}
+
+.signature-info-box strong {
+  font-weight: 600;
+  color: var(--blue-900);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .signature-checkboxes {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+}

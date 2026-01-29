@@ -1,0 +1,133 @@
+/* ===== THEME VARIABLES ===== */
+
+/* Blue Theme (default) */
+[data-theme="blue"] {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --accent: #0ea5e9;
+  --gradient: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+}
+
+/* Green Theme */
+[data-theme="green"] {
+  --primary: #16a34a;
+  --primary-dark: #15803d;
+  --primary-light: #22c55e;
+  --accent: #10b981;
+  --gradient: linear-gradient(135deg, #16a34a 0%, #10b981 100%);
+}
+
+/* Red Theme */
+[data-theme="red"] {
+  --primary: #dc2626;
+  --primary-dark: #b91c1c;
+  --primary-light: #ef4444;
+  --accent: #f97316;
+  --gradient: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+}
+
+/* Orange Theme */
+[data-theme="orange"] {
+  --primary: #ea580c;
+  --primary-dark: #c2410c;
+  --primary-light: #f97316;
+  --accent: #fbbf24;
+  --gradient: linear-gradient(135deg, #ea580c 0%, #fbbf24 100%);
+}
+
+/* Purple Theme */
+[data-theme="purple"] {
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --primary-light: #8b5cf6;
+  --accent: #a855f7;
+  --gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+}
+
+/* Neutral Theme */
+[data-theme="neutral"] {
+  --primary: #475569;
+  --primary-dark: #334155;
+  --primary-light: #64748b;
+  --accent: #94a3b8;
+  --gradient: linear-gradient(135deg, #475569 0%, #64748b 100%);
+}
+
+/* ===== APP LOADING ===== */
+.app-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--space-md);
+  color: var(--gray-500);
+}
+
+.app-loading .loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===== FOCUS VISIBLE ===== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body {
+    background: white;
+  }
+
+  .header,
+  .sidebar,
+  .sidebar-overlay,
+  .form-actions,
+  .preview-header {
+    display: none !important;
+  }
+
+  .layout-main {
+    margin-left: 0 !important;
+  }
+
+  .layout-content {
+    padding: 0 !important;
+  }
+}

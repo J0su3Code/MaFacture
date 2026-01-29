@@ -1,0 +1,211 @@
+/* ============================================================
+   SIGNATURE ZONE - Styles pour signatures digitales/manuelles
+   Version: 1.0
+   ============================================================ */
+
+/* ===== CONTAINER ===== */
+.signature-zone-container {
+  width: 100%;
+  padding: 8mm 0 4mm;
+  margin-top: 8mm;
+  position: relative;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ===== ZONE DE SIGNATURE ===== */
+.signature-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+  min-width: 60mm;
+  max-width: 80mm;
+  padding: 4mm 0;
+}
+
+/* Zone unique (centré à droite) */
+.signature-zone.signature-single {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* ===== DOUBLE SIGNATURE ===== */
+.signature-zone-double {
+  display: flex;
+  justify-content: space-between;
+  gap: 20mm;
+  align-items: flex-start;
+}
+
+.signature-zone-double .signature-zone {
+  flex: 1;
+  max-width: 70mm;
+}
+
+/* ===== LABEL ===== */
+.signature-label {
+  font-size: 7pt;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2mm;
+}
+
+/* ===== SIGNATURE DIGITALE (Écran uniquement) ===== */
+.signature-digital-name {
+  font-family: 'Dancing Script', 'Brush Script MT', cursive;
+  font-size: 22pt;
+  color: #1a1a2e;
+  line-height: 1.2;
+  min-height: 15mm;
+  display: flex;
+  align-items: center;
+  padding: 2mm 0;
+}
+
+/* Alternative si Dancing Script n'est pas chargée */
+@supports not (font-family: 'Dancing Script') {
+  .signature-digital-name {
+    font-family: cursive;
+    font-style: italic;
+  }
+}
+
+/* ===== LIGNE DE SIGNATURE (Impression uniquement) ===== */
+.signature-line {
+  width: 100%;
+  height: 0.5mm;
+  border-bottom: 1px solid #333;
+  margin: 4mm 0 2mm;
+  display: none; /* Caché par défaut, visible en impression */
+}
+
+/* Mention "Lu et approuvé" pour le client */
+.signature-mention {
+  font-size: 7pt;
+  color: #666;
+  font-style: italic;
+  margin-top: -1mm;
+  display: none; /* Caché par défaut, visible en impression */
+}
+
+/* ===== INFORMATIONS DU SIGNATAIRE ===== */
+.signature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  margin-top: 2mm;
+}
+
+.signer-title {
+  font-size: 9pt;
+  font-weight: 600;
+  color: #333;
+}
+
+.signature-date {
+  font-size: 7.5pt;
+  color: #666;
+}
+
+/* ===== CLASSES UTILITAIRES ===== */
+/* Visible uniquement à l'écran */
+.screen-only {
+  display: block;
+}
+
+/* Visible uniquement à l'impression */
+.print-only {
+  display: none;
+}
+
+/* ===== MEDIA QUERIES IMPRESSION ===== */
+@media print {
+  /* Masquer les signatures digitales */
+  .screen-only {
+    display: none !important;
+  }
+  
+  /* Afficher les lignes de signature manuelle */
+  .print-only {
+    display: block !important;
+  }
+  
+  .signature-line {
+    display: block !important;
+    border-bottom: 1px solid #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .signature-mention {
+    display: block !important;
+  }
+  
+  /* Ajuster l'espacement */
+  .signature-zone {
+    min-height: 30mm;
+  }
+  
+  .signature-digital-name {
+    display: none !important;
+  }
+  
+  /* S'assurer que les zones de signature ne sont pas coupées */
+  .signature-zone-container {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .signature-zone-double {
+    break-inside: avoid !important;
+  }
+}
+
+/* ===== THÈME SOMBRE (Optionnel) ===== */
+[data-theme="dark"] .signature-zone {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 6mm 4mm;
+}
+
+[data-theme="dark"] .signature-label {
+  color: #aaa;
+}
+
+[data-theme="dark"] .signature-digital-name {
+  color: #fff;
+}
+
+[data-theme="dark"] .signer-title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .signature-date {
+  color: #999;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 600px) {
+  .signature-zone-double {
+    flex-direction: column;
+    gap: 8mm;
+  }
+  
+  .signature-zone-double .signature-zone {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .signature-zone.signature-single {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .signature-digital-name {
+    font-size: 18pt;
+  }
+}

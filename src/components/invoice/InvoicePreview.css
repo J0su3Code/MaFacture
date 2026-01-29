@@ -1,0 +1,416 @@
+/* InvoicePreview.css */
+
+/* ============================================
+   VARIABLES CSS
+   ============================================ */
+:root {
+  --preview-bg: rgba(0, 0, 0, 0.95);
+  --preview-container-bg: #1a1a2e;
+  --preview-header-bg: #16162a;
+  --preview-border: rgba(255, 255, 255, 0.1);
+  --preview-text: #ffffff;
+  --preview-text-muted: #a0a0b0;
+  --preview-accent: #4f46e5;
+  --preview-radius: 12px;
+  --preview-radius-sm: 8px;
+}
+
+/* ============================================
+   OVERLAY
+   ============================================ */
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  background: var(--preview-bg);
+  overflow: hidden;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.preview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--preview-container-bg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--preview-header-bg);
+  border-bottom: 1px solid var(--preview-border);
+  flex-shrink: 0;
+  gap: 12px;
+  z-index: 100;
+}
+
+.preview-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--preview-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Actions */
+.preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.preview-actions button,
+.preview-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--preview-radius-sm);
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--preview-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.preview-actions button:hover,
+.preview-actions .btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.preview-actions button.active,
+.preview-actions .btn.active {
+  background: rgba(79, 70, 229, 0.2);
+  border-color: var(--preview-accent);
+  color: #a5b4fc;
+}
+
+.preview-actions button[class*="primary"],
+.preview-actions .btn-primary {
+  background: var(--preview-accent);
+  border-color: var(--preview-accent);
+  color: white;
+}
+
+.preview-actions button[class*="primary"]:hover,
+.preview-actions .btn-primary:hover {
+  background: #6366f1;
+}
+
+.preview-close {
+  width: 36px;
+  height: 36px;
+  padding: 0 !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  border-radius: 50% !important;
+  color: #f87171 !important;
+  margin-left: 4px;
+}
+
+.preview-close:hover {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+/* ============================================
+   BODY
+   ============================================ */
+.preview-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+  position: relative;
+}
+
+/* ============================================
+   OPTIONS PANEL - Desktop
+   ============================================ */
+.preview-options-panel {
+  width: 320px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--preview-border);
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
+   SCROLL CONTAINER
+   ============================================ */
+.preview-scroll {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background: #0a0a14;
+  min-width: 0;
+}
+
+/* ============================================
+   DOCUMENT
+   ============================================ */
+.preview-document {
+  flex-shrink: 0;
+  transform-origin: top center;
+  --doc-scale: 0.9;
+  transform: scale(var(--doc-scale));
+  margin-bottom: calc(-297mm * (1 - var(--doc-scale)));
+}
+
+/* ============================================
+   RESPONSIVE - Desktop Large
+   ============================================ */
+@media screen and (min-width: 1400px) {
+  .preview-document {
+    --doc-scale: 1;
+    margin-bottom: 0;
+  }
+  
+  .preview-scroll {
+    padding: 40px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Desktop
+   ============================================ */
+@media screen and (max-width: 1399px) and (min-width: 1024px) {
+  .preview-document {
+    --doc-scale: 0.85;
+  }
+  
+  .preview-options-panel {
+    width: 280px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Tablette
+   ============================================ */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .preview-options-panel {
+    width: 260px;
+    padding: 16px;
+  }
+  
+  .preview-document {
+    --doc-scale: 0.7;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Mobile (Bottom Sheet Style)
+   ============================================ */
+@media screen and (max-width: 767px) {
+  /* Restructure le layout */
+  .preview-body {
+    flex-direction: column-reverse; /* Document en haut, options en bas */
+  }
+  
+  /* Transform le panneau en bottom sheet */
+  .preview-options-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 60vh;
+    border-right: none;
+    border-top: 1px solid var(--preview-border);
+    border-radius: var(--preview-radius) var(--preview-radius) 0 0;
+    padding: 16px;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    background: rgba(26, 26, 46, 0.98);
+    backdrop-filter: blur(20px);
+    transform: translateY(calc(100% - 60px)); /* Montrer juste le header */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* État ouvert du bottom sheet */
+  .preview-options-panel.open {
+    transform: translateY(0);
+  }
+  
+  /* Handle du bottom sheet */
+  .preview-options-panel::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--preview-border);
+    border-radius: 2px;
+  }
+  
+  /* Titre du panneau (toujours visible) */
+  .preview-options-panel .template-selector > .selector-section:first-child h4 {
+    padding-top: 20px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Document prend tout l'espace */
+  .preview-scroll {
+    padding: 16px;
+    padding-bottom: 80px; /* Espace pour le panneau fermé */
+  }
+  
+  .preview-document {
+    --doc-scale: 0.5;
+  }
+  
+  /* Masquer le texte des boutons */
+  .preview-actions button span,
+  .preview-actions .btn span {
+    display: none;
+  }
+  
+  .preview-actions button,
+  .preview-actions .btn {
+    padding: 10px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Petit mobile
+   ============================================ */
+@media screen and (max-width: 480px) {
+  .preview-header {
+    padding: 10px 12px;
+  }
+  
+  .preview-header h2 {
+    font-size: 0.9rem;
+  }
+  
+  .preview-document {
+    --doc-scale: 0.42;
+  }
+  
+  .preview-scroll {
+    padding: 12px;
+    padding-bottom: 70px;
+  }
+  
+  .preview-options-panel {
+    max-height: 70vh;
+    padding: 12px;
+  }
+  
+  .preview-actions {
+    gap: 6px;
+  }
+  
+  .preview-actions button,
+  .preview-actions .btn {
+    padding: 8px;
+  }
+  
+  .preview-close {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Très petit mobile
+   ============================================ */
+@media screen and (max-width: 380px) {
+  .preview-document {
+    --doc-scale: 0.40;
+  }
+  
+  .preview-scroll {
+    padding: 8px;
+    padding-bottom: 70px;
+  }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+.preview-scroll::-webkit-scrollbar,
+.preview-options-panel::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.preview-scroll::-webkit-scrollbar-track,
+.preview-options-panel::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.preview-scroll::-webkit-scrollbar-thumb,
+.preview-options-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.preview-scroll::-webkit-scrollbar-thumb:hover,
+.preview-options-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+  .preview-overlay {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+  }
+  
+  .preview-header,
+  .preview-options-panel {
+    display: none !important;
+  }
+  
+  .preview-body,
+  .preview-scroll {
+    display: block;
+    overflow: visible;
+    padding: 0;
+    background: none;
+  }
+  
+  .preview-document {
+    transform: none !important;
+    margin: 0 !important;
+  }
+}

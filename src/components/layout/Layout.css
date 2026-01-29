@@ -1,0 +1,31 @@
+/* ===== LAYOUT ===== */
+.layout {
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+.layout-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left var(--transition-normal);
+}
+
+.layout-content {
+  flex: 1;
+  padding: var(--space-lg);
+  overflow-x: hidden;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 1024px) {
+  .layout-main {
+    margin-left: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-content {
+    padding: var(--space-md);
+  }
+}

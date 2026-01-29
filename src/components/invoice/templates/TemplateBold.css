@@ -1,0 +1,632 @@
+/* ============================================================
+   TEMPLATE BOLD - SIDEBAR DESIGN
+   Style: Asymétrique, Audacieux, Moderne
+   ============================================================ */
+
+.template-bold {
+  /* Variables */
+  --primary: #dc2626;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  --success: #22c55e;
+  
+  /* Dimensions */
+  --paper-width: 210mm;
+  --paper-height: 297mm;
+  --sidebar-width: 55mm;
+  
+  /* Structure */
+  width: var(--paper-width);
+  min-height: var(--paper-height);
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 9pt;
+  line-height: 1.5;
+  color: var(--gray-800);
+  background: var(--white);
+}
+
+.template-bold * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== SIDEBAR ===== */
+.bold-sidebar {
+  background: var(--primary);
+  color: var(--white);
+  padding: 8mm 5mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+/* Logo */
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 2mm;
+}
+
+.sidebar-logo img {
+  max-width: 35mm;
+  max-height: 25mm;
+  object-fit: contain;
+  background: rgba(255,255,255,0.1);
+  padding: 2mm;
+  border-radius: 2mm;
+}
+
+.logo-letter {
+  width: 18mm;
+  height: 18mm;
+  background: var(--white);
+  color: var(--primary);
+  font-size: 20pt;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3mm;
+}
+
+/* Numéro facture */
+.sidebar-invoice {
+  text-align: center;
+  padding: 4mm 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.invoice-label {
+  display: block;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+  margin-bottom: 1mm;
+}
+
+.invoice-number {
+  display: block;
+  font-size: 16pt;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+/* Statut */
+.sidebar-status {
+  text-align: center;
+  padding: 2mm 3mm;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20mm;
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sidebar-status[data-status="paid"] {
+  background: var(--success);
+}
+
+.sidebar-status[data-status="overdue"] {
+  background: #ef4444;
+}
+
+/* Dates */
+.sidebar-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.date-block {
+  text-align: center;
+}
+
+.date-label {
+  display: block;
+  font-size: 6pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.date-value {
+  display: block;
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+/* Total */
+.sidebar-total {
+  text-align: center;
+  padding: 5mm 3mm;
+  background: rgba(0,0,0,0.2);
+  border-radius: 3mm;
+  margin: 2mm 0;
+}
+
+.total-label {
+  display: block;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 1mm;
+}
+
+.total-value {
+  display: block;
+  font-size: 14pt;
+  font-weight: 900;
+}
+
+/* Entreprise */
+.sidebar-company {
+  margin-top: auto;
+  padding-top: 4mm;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 7pt;
+  line-height: 1.6;
+}
+
+.sidebar-company h2 {
+  font-size: 9pt;
+  font-weight: 800;
+  margin-bottom: 2mm;
+}
+
+.sidebar-company p {
+  opacity: 0.85;
+}
+
+.sidebar-company .tax-id {
+  margin-top: 2mm;
+  padding-top: 2mm;
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  font-family: 'Consolas', monospace;
+  font-size: 6pt;
+  opacity: 0.7;
+}
+
+/* ===== CONTENU PRINCIPAL ===== */
+.bold-main {
+  padding: 10mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+/* Client */
+.bold-client {
+  padding: 5mm;
+  background: var(--gray-50);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 3mm 3mm 0;
+}
+
+.client-label {
+  font-size: 6pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+  margin-bottom: 2mm;
+}
+
+.client-name {
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 2mm;
+}
+
+.client-info {
+  font-size: 8pt;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.client-info p {
+  margin: 0;
+}
+
+/* Tableau */
+.bold-table {
+  flex: 1;
+}
+
+.bold-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bold-table thead {
+  background: var(--gray-900);
+  color: var(--white);
+}
+
+.bold-table th {
+  padding: 3mm;
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+
+.bold-table th.col-qty,
+.bold-table th.col-price,
+.bold-table th.col-amount {
+  text-align: right;
+  width: 22mm;
+}
+
+.bold-table tbody tr {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.bold-table tbody tr:nth-child(even) {
+  background: var(--gray-50);
+}
+
+.bold-table td {
+  padding: 3.5mm 3mm;
+  font-size: 8.5pt;
+  vertical-align: middle;
+}
+
+.bold-table td.col-desc {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+
+.item-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6mm;
+  height: 6mm;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 6pt;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.item-text {
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.bold-table td.col-qty,
+.bold-table td.col-price {
+  text-align: right;
+  color: var(--gray-500);
+}
+
+.bold-table td.col-amount {
+  text-align: right;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* Résumé */
+.bold-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1mm;
+  padding-top: 4mm;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  width: 60mm;
+  padding: 2mm 0;
+  font-size: 8.5pt;
+  border-bottom: 1px dashed var(--gray-200);
+}
+
+.summary-row span:first-child {
+  color: var(--gray-500);
+}
+
+.summary-row span:last-child {
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.summary-row.discount span:last-child {
+  color: var(--success);
+}
+
+.summary-row.total {
+  border-bottom: none;
+  background: var(--primary);
+  color: var(--white);
+  padding: 3mm 4mm;
+  border-radius: 2mm;
+  margin-top: 2mm;
+}
+
+.summary-row.total span {
+  color: var(--white) !important;
+  font-weight: 800;
+  font-size: 10pt;
+}
+
+/* Images */
+.bold-images h4 {
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
+  margin-bottom: 3mm;
+}
+
+.images-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3mm;
+}
+
+.image-item {
+  position: relative;
+  width: 28mm;
+  height: 28mm;
+  border-radius: 2mm;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-num {
+  position: absolute;
+  top: 1mm;
+  right: 1mm;
+  width: 5mm;
+  height: 5mm;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 6pt;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Notes */
+.bold-notes {
+  padding: 4mm;
+  background: #fef9c3;
+  border-left: 3px solid #eab308;
+  border-radius: 0 2mm 2mm 0;
+}
+
+.bold-notes h4 {
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a16207;
+  margin-bottom: 2mm;
+}
+
+.bold-notes p {
+  font-size: 8pt;
+  color: #854d0e;
+  line-height: 1.6;
+}
+
+/* Footer */
+.bold-footer {
+  margin-top: auto;
+  padding-top: 4mm;
+  text-align: center;
+}
+
+.footer-thanks {
+  font-size: 14pt;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 3mm;
+}
+
+.footer-line {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  border-radius: 2px;
+}
+
+/* ===== IMPRESSION ===== */
+@media print {
+  .template-bold {
+    width: 100%;
+    min-height: 100%;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  .bold-sidebar,
+  .bold-table thead,
+  .summary-row.total,
+  .item-index,
+  .image-num {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .bold-client,
+  .bold-table,
+  .bold-summary,
+  .bold-images,
+  .bold-notes {
+    break-inside: avoid;
+  }
+}
+
+/* ===== FORMATS PAPIER ===== */
+.template-bold[data-format="A4"] {
+  --paper-width: 210mm;
+  --paper-height: 297mm;
+}
+
+.template-bold[data-format="Letter"] {
+  --paper-width: 215.9mm;
+  --paper-height: 279.4mm;
+}
+
+.template-bold[data-format="Legal"] {
+  --paper-width: 215.9mm;
+  --paper-height: 355.6mm;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 220mm) {
+  .template-bold {
+    width: 100%;
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+  
+  .bold-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4mm;
+    padding: 5mm;
+  }
+  
+  .sidebar-logo {
+    margin-bottom: 0;
+  }
+  
+  .sidebar-invoice {
+    border: none;
+    padding: 0;
+  }
+  
+  .sidebar-dates {
+    flex-direction: row;
+    gap: 5mm;
+  }
+  
+  .sidebar-total {
+    margin: 0;
+    padding: 3mm 5mm;
+  }
+  
+  .sidebar-company {
+    display: none;
+  }
+  
+  .bold-main {
+    padding: 6mm;
+  }
+  
+  .summary-row {
+    width: 100%;
+  }
+}
+
+/* ===== ÉCRAN ===== */
+@media screen {
+  .template-bold {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ===== SIGNATURES ===== */
+.template-bold .bold-signatures {
+  padding: 6mm 0;
+  margin-top: 6mm;
+}
+
+.template-bold .bold-signatures .signature-zone-container {
+  padding: 4mm 0;
+  border-top: 3px solid var(--primary);
+}
+
+.template-bold .bold-signatures .signature-zone-double {
+  gap: 15mm;
+}
+
+.template-bold .bold-signatures .signature-label {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.template-bold .bold-signatures .signature-digital-name {
+  font-family: 'Dancing Script', cursive;
+  color: #1a1a1a;
+  font-size: 24pt;
+}
+
+.template-bold .bold-signatures .signer-title {
+  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 8pt;
+  letter-spacing: 0.05em;
+}
+
+.template-bold .bold-signatures .signature-date {
+  color: #666;
+  font-size: 7pt;
+}
+
+.template-bold .bold-signatures .signature-line {
+  border-color: var(--primary);
+  border-width: 2px;
+}
+
+.template-bold .bold-signatures .signature-mention {
+  font-weight: 600;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 6pt;
+  letter-spacing: 0.08em;
+}
+
+/* No break pour impression */
+.template-bold .no-break {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}

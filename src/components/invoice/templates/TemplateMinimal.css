@@ -1,0 +1,632 @@
+/* ============================================================
+   TEMPLATE MINIMAL - ULTRA CLEAN & MODERN
+   Version: 1.0
+   Style: Épuré, beaucoup d'espace blanc, typographie moderne
+   Supports: A4, Letter, Legal
+   ============================================================ */
+
+/* ===== BASE & VARIABLES ===== */
+.template-minimal {
+  /* Variables dynamiques (via JSX) */
+  --primary: #0f172a;
+  --primary-light: #e2e8f0;
+  --primary-dark: #020617;
+  --primary-bg: #fafafa;
+  
+  /* Couleurs statiques */
+  --white: #ffffff;
+  --black: #000000;
+  
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  
+  /* Dimensions papier */
+  --paper-width: 210mm;
+  --paper-height: 297mm;
+  --margin: 15mm;
+  
+  /* Typographie */
+  --font-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  
+  /* Structure principale */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: var(--paper-width);
+  min-height: var(--paper-height);
+  margin: 0;
+  padding: var(--margin);
+  background: var(--white);
+  font-family: var(--font-sans);
+  font-size: 9pt;
+  line-height: 1.6;
+  color: var(--gray-700);
+  position: relative;
+}
+
+/* Reset */
+.template-minimal *,
+.template-minimal *::before,
+.template-minimal *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== EN-TÊTE ===== */
+.template-minimal .min-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12mm;
+}
+
+.template-minimal .header-left {
+  display: flex;
+  align-items: center;
+}
+
+.template-minimal .min-logo {
+  height: 14mm;
+  width: auto;
+  max-width: 50mm;
+  object-fit: contain;
+}
+
+.template-minimal .min-logo-text {
+  font-size: 18pt;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.template-minimal .header-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1mm;
+}
+
+.template-minimal .invoice-label {
+  font-size: 8pt;
+  font-weight: 500;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.template-minimal .invoice-number {
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.template-minimal .invoice-status-badge {
+  display: inline-block;
+  margin-top: 2mm;
+  padding: 1.5mm 4mm;
+  background: var(--status-bg);
+  color: var(--status-color);
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 2mm;
+}
+
+/* ===== MÉTADONNÉES ===== */
+.template-minimal .min-meta {
+  margin-bottom: 10mm;
+}
+
+.template-minimal .meta-dates {
+  display: flex;
+  gap: 8mm;
+}
+
+.template-minimal .meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+
+.template-minimal .meta-label {
+  font-size: 7pt;
+  font-weight: 500;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.template-minimal .meta-value {
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+/* ===== PARTIES ===== */
+.template-minimal .min-parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15mm;
+  margin-bottom: 10mm;
+}
+
+.template-minimal .party-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.template-minimal .party-label {
+  font-size: 7pt;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.template-minimal .party-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+  font-size: 8.5pt;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.template-minimal .party-name {
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1mm;
+}
+
+.template-minimal .party-to .party-name {
+  color: var(--primary);
+}
+
+.template-minimal .tax-id {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  color: var(--gray-400);
+  margin-top: 1mm;
+}
+
+/* ===== DIVIDER ===== */
+.template-minimal .min-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin-bottom: 8mm;
+}
+
+/* ===== TABLEAU DES ITEMS ===== */
+.template-minimal .min-items {
+  margin-bottom: 8mm;
+  flex-shrink: 0;
+}
+
+.template-minimal .items-header {
+  display: grid;
+  grid-template-columns: 1fr 15mm 28mm 28mm;
+  gap: 4mm;
+  padding: 3mm 0;
+  border-bottom: 2px solid var(--primary);
+  font-size: 7pt;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.template-minimal .items-header .col-qty,
+.template-minimal .items-header .col-price,
+.template-minimal .items-header .col-total {
+  text-align: right;
+}
+
+.template-minimal .items-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.template-minimal .item-row {
+  display: grid;
+  grid-template-columns: 1fr 15mm 28mm 28mm;
+  gap: 4mm;
+  padding: 4mm 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 9pt;
+  align-items: center;
+}
+
+.template-minimal .item-row:last-child {
+  border-bottom: none;
+}
+
+.template-minimal .item-row .col-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+
+.template-minimal .item-name {
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.template-minimal .item-details {
+  font-size: 7.5pt;
+  color: var(--gray-400);
+}
+
+.template-minimal .item-row .col-qty {
+  text-align: right;
+  color: var(--gray-500);
+}
+
+.template-minimal .item-row .col-price {
+  text-align: right;
+  color: var(--gray-500);
+}
+
+.template-minimal .item-row .col-total {
+  text-align: right;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+/* ===== TOTAUX ===== */
+.template-minimal .min-totals {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10mm;
+}
+
+.template-minimal .totals-wrapper {
+  width: 70mm;
+}
+
+.template-minimal .totals-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  padding-bottom: 4mm;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 4mm;
+}
+
+.template-minimal .total-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8.5pt;
+}
+
+.template-minimal .total-label {
+  color: var(--gray-500);
+}
+
+.template-minimal .total-value {
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.template-minimal .discount-line .total-value {
+  color: #10b981;
+}
+
+.template-minimal .grand-total-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.template-minimal .grand-label {
+  font-size: 8pt;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.template-minimal .grand-value {
+  font-size: 20pt;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+/* ===== INFOS PIED DE CONTENU ===== */
+.template-minimal .min-footer-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10mm;
+  margin-bottom: 8mm;
+}
+
+.template-minimal .info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.template-minimal .info-label {
+  font-size: 7pt;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.template-minimal .info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+  font-size: 8pt;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.template-minimal .info-content .mono {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  color: var(--gray-500);
+  letter-spacing: 0.02em;
+}
+
+.template-minimal .info-content p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* ===== PIÈCES JOINTES ===== */
+.template-minimal .min-attachments {
+  margin-bottom: 8mm;
+}
+
+.template-minimal .attachments-row {
+  display: flex;
+  gap: 3mm;
+  flex-wrap: wrap;
+}
+
+.template-minimal .attachment-thumb {
+  width: 22mm;
+  height: 22mm;
+  border-radius: 2mm;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+}
+
+.template-minimal .attachment-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== SPACER ===== */
+.template-minimal .min-spacer {
+  flex: 1;
+  min-height: 10mm;
+}
+
+/* ===== FOOTER ===== */
+.template-minimal .min-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5mm;
+  border-top: 1px solid var(--gray-200);
+  margin-top: auto;
+}
+
+.template-minimal .footer-thanks {
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.template-minimal .footer-company {
+  font-size: 8pt;
+  color: var(--gray-400);
+}
+
+/* ===== NO BREAK ===== */
+.template-minimal .no-break {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ===== FORMATS PAPIER ===== */
+.template-minimal[data-format="A4"] {
+  --paper-width: 210mm;
+  --paper-height: 297mm;
+}
+
+.template-minimal[data-format="Letter"] {
+  --paper-width: 215.9mm;
+  --paper-height: 279.4mm;
+}
+
+.template-minimal[data-format="Legal"] {
+  --paper-width: 215.9mm;
+  --paper-height: 355.6mm;
+}
+
+/* ===== IMPRESSION ===== */
+@media print {
+  .template-minimal {
+    width: 100% !important;
+    min-height: 100% !important;
+    padding: 10mm 12mm;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  .template-minimal .invoice-status-badge,
+  .template-minimal .items-header,
+  .template-minimal .attachment-thumb {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .template-minimal .min-header,
+  .template-minimal .min-parties,
+  .template-minimal .min-totals,
+  .template-minimal .min-footer-info,
+  .template-minimal .min-attachments,
+  .template-minimal .min-footer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .template-minimal .items-body .item-row {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ===== RESPONSIVE ÉCRAN ===== */
+@media screen and (max-width: 220mm) {
+  .template-minimal {
+    width: 100%;
+    min-height: auto;
+    padding: 8mm;
+    font-size: 8pt;
+  }
+  
+  .template-minimal .min-header {
+    flex-direction: column;
+    gap: 6mm;
+  }
+  
+  .template-minimal .header-right {
+    align-items: flex-start;
+  }
+  
+  .template-minimal .min-parties {
+    grid-template-columns: 1fr;
+    gap: 6mm;
+  }
+  
+  .template-minimal .items-header,
+  .template-minimal .item-row {
+    grid-template-columns: 1fr 12mm auto;
+  }
+  
+  .template-minimal .items-header .col-price,
+  .template-minimal .item-row .col-price {
+    display: none;
+  }
+  
+  .template-minimal .min-totals {
+    justify-content: stretch;
+  }
+  
+  .template-minimal .totals-wrapper {
+    width: 100%;
+  }
+  
+  .template-minimal .min-footer-info {
+    grid-template-columns: 1fr;
+    gap: 6mm;
+  }
+  
+  .template-minimal .min-footer {
+    flex-direction: column;
+    gap: 2mm;
+    text-align: center;
+  }
+}
+
+/* ===== OMBRE ÉCRAN ===== */
+@media screen {
+  .template-minimal {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 
+                0 10px 40px rgba(0, 0, 0, 0.08);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== SIGNATURES ===== */
+.template-minimal .min-signatures {
+  padding: 6mm 0;
+  margin-top: 6mm;
+}
+
+.template-minimal .min-signatures .signature-zone-container {
+  padding: 4mm 0;
+  border-top: 1px solid var(--gray-200);
+}
+
+.template-minimal .min-signatures .signature-zone-double {
+  gap: 20mm;
+}
+
+.template-minimal .min-signatures .signature-label {
+  color: var(--gray-400);
+  font-weight: 500;
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.template-minimal .min-signatures .signature-digital-name {
+  font-family: 'Dancing Script', cursive;
+  color: var(--primary);
+  font-size: 20pt;
+}
+
+.template-minimal .min-signatures .signer-title {
+  color: var(--gray-700);
+  font-weight: 600;
+  font-size: 8pt;
+}
+
+.template-minimal .min-signatures .signature-date {
+  color: var(--gray-400);
+  font-size: 7pt;
+}
+
+.template-minimal .min-signatures .signature-line {
+  border-color: var(--gray-300);
+}
+
+.template-minimal .min-signatures .signature-mention {
+  color: var(--gray-400);
+  font-size: 6pt;
+}
+
+/* No break pour impression */
+.template-minimal .no-break {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}

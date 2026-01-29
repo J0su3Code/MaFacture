@@ -1,0 +1,241 @@
+/* ===== ITEM ROW - DESKTOP ===== */
+.item-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 70px 130px 140px 40px;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.item-row:last-child {
+  border-bottom: none;
+}
+
+/* ===== CHAMPS DE SAISIE ===== */
+.item-field {
+  width: 100%;
+  min-width: 0; /* Permet au champ de rétrécir si nécessaire */
+}
+
+.item-field input {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  background: var(--white);
+  color: var(--gray-800);
+  transition: all var(--transition-fast);
+}
+
+.item-field input:hover {
+  border-color: var(--gray-300);
+}
+
+.item-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.item-field input::placeholder {
+  color: var(--gray-400);
+}
+
+/* ===== COLONNE DESCRIPTION ===== */
+.item-field.col-desc input {
+  /* Prend tout l'espace disponible grâce au grid 1fr */
+}
+
+/* ===== COLONNES NUMÉRIQUES ===== */
+.item-field.col-qty input,
+.item-field.col-price input {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== COLONNE TOTAL (AFFICHAGE) ===== */
+.item-total {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  text-align: right;
+  padding-right: var(--space-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== BOUTON SUPPRIMER ===== */
+.remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.remove-btn:hover:not(:disabled) {
+  background: #fee2e2;
+  color: var(--error);
+}
+
+.remove-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ===== RESPONSIVE TABLETTE ===== */
+@media (max-width: 900px) {
+  .item-row {
+    grid-template-columns: minmax(150px, 1fr) 60px 110px 120px 36px;
+    gap: var(--space-sm);
+  }
+
+  .item-field input {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .item-total {
+    font-size: 0.875rem;
+  }
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+  .item-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--gray-200);
+    position: relative;
+  }
+
+  .item-field {
+    width: 100%;
+  }
+
+  /* Labels visibles sur mobile */
+  .item-field::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .item-field.col-desc::before {
+    content: "Description";
+  }
+
+  .item-field.col-qty::before {
+    content: "Quantité";
+  }
+
+  .item-field.col-price::before {
+    content: "Prix unitaire (FCFA)";
+  }
+
+  .item-field input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 16px; /* Évite le zoom sur iOS */
+    border-radius: var(--radius-md);
+  }
+
+  /* Description en premier, pleine largeur */
+  .item-field.col-desc {
+    order: 1;
+  }
+
+  /* Quantité et Prix côte à côte */
+  .item-field.col-qty,
+  .item-field.col-price {
+    order: 2;
+  }
+
+  .item-field.col-qty input,
+  .item-field.col-price input {
+    text-align: left;
+  }
+
+  /* Wrapper pour Quantité et Prix sur mobile */
+  .item-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .item-row::after {
+    content: "";
+    display: block;
+    grid-column: 1 / -1;
+  }
+
+  /* Total bien visible */
+  .item-total {
+    order: 3;
+    text-align: left;
+    padding: var(--space-md) 0 0 0;
+    font-size: 1.125rem;
+    color: var(--primary);
+    border-top: 1px dashed var(--gray-300);
+    margin-top: var(--space-sm);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .item-total::before {
+    content: "Total ligne :";
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+  }
+
+  /* Bouton supprimer en haut à droite */
+  .remove-btn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    width: 32px;
+    height: 32px;
+  }
+
+  .remove-btn:hover:not(:disabled) {
+    background: #fee2e2;
+    border-color: #fecaca;
+  }
+}
+
+/* ===== TRÈS PETIT ÉCRAN ===== */
+@media (max-width: 400px) {
+  .item-row {
+    padding: var(--space-md);
+  }
+
+  .item-field input {
+    padding: 0.875rem;
+  }
+}

@@ -1,0 +1,189 @@
+/* ===== INVOICE LIST PAGE ===== */
+.invoice-list-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.list-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--gray-500);
+  gap: var(--space-md);
+}
+
+/* ===== LIST HEADER ===== */
+.list-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.list-header h1 {
+  margin-bottom: var(--space-xs);
+}
+
+/* ===== FILTERS ===== */
+.list-filters {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--gray-300);
+  color: var(--gray-800);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* ===== INVOICES GRID ===== */
+.invoices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ===== INVOICE CARD ===== */
+.invoice-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-100);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.invoice-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.invoice-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.invoice-card-header .invoice-number {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.invoice-card-body {
+  padding: var(--space-lg);
+}
+
+.invoice-card-body .client-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: var(--space-xs);
+}
+
+.invoice-card-body .invoice-date {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.invoice-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--gray-100);
+}
+
+.invoice-amount {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.invoice-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--gray-100);
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: var(--gray-200);
+  color: var(--gray-800);
+}
+
+.action-btn.danger:hover {
+  background: #fee2e2;
+  color: var(--error);
+}
+
+/* ===== DELETE MODAL ===== */
+.delete-modal-content {
+  text-align: center;
+}
+
+.delete-modal-content p {
+  margin-bottom: var(--space-sm);
+}
+
+.delete-modal-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-header .btn {
+    width: 100%;
+  }
+
+  .invoices-grid {
+    grid-template-columns: 1fr;
+  }
+}
