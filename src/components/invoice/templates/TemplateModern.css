@@ -543,16 +543,6 @@
   color: var(--text-muted);
 }
 
-.footer-contact span:not(:last-child)::after {
-  content: " •";
-  color: var(--primary);
-  margin-left: 4mm;
-}
-
-.footer-contact span:not(:last-child)::after {
-  content: "";
-}
-
 .footer-legal {
   margin-top: 2mm;
   font-size: 7pt;
@@ -564,6 +554,45 @@
   height: 5mm;
   background: var(--primary);
   flex-shrink: 0;
+}
+
+/* ===== SIGNATURES ===== */
+.modern-signatures {
+  margin-bottom: 6mm;
+}
+
+.modern-signatures .signature-zone-container {
+  padding: 4mm 0;
+  margin-top: 4mm;
+  border-top: 1px dashed var(--border-light);
+}
+
+.modern-signatures .signature-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.modern-signatures .signature-digital-name {
+  color: var(--primary-dark);
+}
+
+.modern-signatures .signer-title {
+  color: var(--text-muted);
+}
+
+.modern-signatures .signature-date {
+  color: var(--text-muted);
+}
+
+.modern-signatures .signature-line {
+  border-color: var(--primary);
+}
+
+/* No break pour impression */
+.modern-signatures.no-break,
+.no-break {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 /* ===== IMPRESSION ===== */
@@ -587,7 +616,6 @@
     print-color-adjust: exact !important;
   }
   
-  /* Éviter les coupures de page dans les éléments */
   .client-card,
   .items-table-wrapper,
   .totals-box,
@@ -604,59 +632,214 @@
     font-size: 9pt;
   }
   
+  .modern-content {
+    padding: 6mm;
+  }
+  
+  .modern-accent-top {
+    height: 5mm;
+  }
+  
+  .modern-accent-bottom {
+    height: 3mm;
+  }
+  
+  /* Header */
   .header-main {
     flex-direction: column;
     gap: 4mm;
   }
   
-  .invoice-block {
-    align-self: flex-end;
+  .company-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
+  .company-logo,
+  .company-logo-placeholder {
+    width: 20mm;
+    height: 20mm;
+  }
+  
+  .company-logo-placeholder span {
+    font-size: 16pt;
+  }
+  
+  .company-name {
+    font-size: 12pt;
+  }
+  
+  .company-info {
+    text-align: center;
+  }
+  
+  .invoice-block {
+    align-self: center;
+    text-align: center;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .invoice-number {
+    font-size: 14pt;
+  }
+  
+  /* Meta cards */
   .header-meta {
     flex-wrap: wrap;
+    gap: 2mm;
   }
   
   .meta-card {
     flex: 1 1 45%;
+    padding: 2mm 3mm;
+  }
+  
+  .meta-card.highlight {
+    flex: 1 1 100%;
+  }
+  
+  .meta-value.big {
+    font-size: 11pt;
+  }
+  
+  /* Section headers */
+  .section-header {
+    margin-bottom: 3mm;
+  }
+  
+  .section-title {
+    font-size: 7pt;
+  }
+  
+  /* Client */
+  .client-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3mm;
+  }
+  
+  .client-avatar {
+    width: 10mm;
+    height: 10mm;
+    font-size: 8pt;
+  }
+  
+  .client-name {
+    font-size: 10pt;
+  }
+  
+  /* Tableau */
+  .items-table th,
+  .items-table td {
+    padding: 2mm;
+    font-size: 8pt;
+  }
+  
+  .items-table th.col-description,
+  .items-table td.col-description {
+    width: 40%;
+  }
+  
+  .items-table th.col-quantity,
+  .items-table td.col-quantity {
+    display: none;
+  }
+  
+  .items-table th.col-price,
+  .items-table td.col-price {
+    width: 30%;
+  }
+  
+  .items-table th.col-total,
+  .items-table td.col-total {
+    width: 30%;
+  }
+  
+  /* Totaux */
+  .totals-section {
+    justify-content: center;
+  }
+  
+  .totals-box {
+    width: 100%;
+  }
+  
+  .totals-row {
+    font-size: 8pt;
+  }
+  
+  .totals-row.grand-total .totals-label {
+    font-size: 8pt;
+  }
+  
+  .totals-row.grand-total .totals-value {
+    font-size: 10pt;
+  }
+  
+  /* Images */
+  .images-grid {
+    justify-content: center;
+  }
+  
+  .image-item {
+    width: 25mm;
+    height: 25mm;
+  }
+  
+  /* Notes */
+  .notes-card {
+    padding: 3mm;
+  }
+  
+  .notes-header {
+    font-size: 6pt;
+  }
+  
+  .notes-text {
+    font-size: 7pt;
+  }
+  
+  /* Footer */
+  .modern-footer {
+    padding: 3mm;
+  }
+  
+  .footer-thanks {
+    font-size: 9pt;
+    margin-bottom: 2mm;
+  }
+  
+  .footer-divider {
+    margin-bottom: 2mm;
+  }
+  
+  .footer-contact {
+    flex-direction: column;
+    gap: 1mm;
+    font-size: 7pt;
+  }
+  
+  .footer-legal {
+    font-size: 6pt;
+  }
+  
+  /* Signatures */
+  .modern-signatures .signature-zone-container {
+    padding: 3mm 0;
+  }
+  
+  .modern-signatures .signature-zone-double {
+    flex-direction: column;
+    gap: 4mm;
   }
 }
 
-
-
-
-
-
-
-
-/* ===== SIGNATURES ===== */
-.template-corporate .corp-signatures {
-  padding: 6mm var(--margin-x) 0;
-}
-
-.template-corporate .corp-signatures .signature-zone-container {
-  padding: 4mm 0;
-  margin-top: 4mm;
-  border-top: 1px dashed var(--gray-200);
-}
-
-.template-corporate .corp-signatures .signature-label {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.template-corporate .corp-signatures .signature-digital-name {
-  color: var(--primary-dark);
-}
-
-.template-corporate .corp-signatures .signer-title {
-  color: var(--gray-700);
-}
-
-.template-corporate .corp-signatures .signature-date {
-  color: var(--gray-500);
-}
-
-.template-corporate .corp-signatures .signature-line {
-  border-color: var(--primary);
+/* ===== ÉCRAN ===== */
+@media screen {
+  .template-modern {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
 }
