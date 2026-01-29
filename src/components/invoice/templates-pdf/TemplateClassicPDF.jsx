@@ -256,13 +256,12 @@ const createStyles = (primaryColor) => StyleSheet.create({
     alignItems: 'center',
     gap: 14,
   },
-  invoiceNumber: {
+invoiceNumber: {
     fontSize: 13,
-    fontFamily: 'Times-Bold',
     color: primaryColor,
     fontFamily: 'Courier-Bold',
     letterSpacing: 1,
-  },
+},
   invoiceStatus: {
     paddingVertical: 4,
     paddingHorizontal: 12,
